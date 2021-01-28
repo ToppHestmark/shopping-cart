@@ -33,9 +33,36 @@ const App = () => {
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((acc: number, item) => acc + item.amount, 0);
 
-  const handleAddToCart = (selectedItem: CartItemType) => null;
+  const handleAddToCart = (selectedItem: CartItemType) => {
+    setCartItems((prevState) => {
+      const isItemInCart = prevState.find(
+        (item) => item.id === selectedItem.id
+      );
 
-  const handleRemoveFromCart = () => null;
+      if (isItemInCart) {
+        return prevState.map((item) =>
+          item.id === selectedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+
+      return [...prevState, { ...selectedItem, amount: 1 }];
+    });
+  };
+
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems((prevState) =>
+      prevState.reduce((acc, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return acc;
+          return [...acc, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...acc, item];
+        }
+      }, [] as CartItemType[])
+    );
+  };
 
   if (isLoading) return <LinearProgress />;
   if (error) return <h5>An error occured when calling API.</h5>;

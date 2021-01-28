@@ -5,8 +5,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  height: 100%auto;
+  height: 100%;
   border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 10px;
 
   button {
     border-radius: 0 0 20px 20px;
@@ -18,6 +20,7 @@ export const Wrapper = styled.div`
     align-self: center;
     border-radius: 20px 20px 0 0;
     aspect-ratio: 9 / 12;
+    object-fit: contain;
 
     &::before {
       background: red;
@@ -34,6 +37,5 @@ export const Wrapper = styled.div`
   h3,
   p {
     color: rgba(0, 0, 0, 0.75);
-    padding: 0 10px;
   }
 `;
