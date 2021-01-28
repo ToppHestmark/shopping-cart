@@ -34,5 +34,6 @@ export const Wrapper = styled.div`
   h3,
   p {
     color: rgba(0, 0, 0, 0.75);
+    padding: 0 10px;
   }
 `;
