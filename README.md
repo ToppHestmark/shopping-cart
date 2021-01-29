@@ -1,4 +1,6 @@
-# Shopping cart
+# Fake Store App - Shopping cart
+
+[Demo site](https://fake-store-shopping-cart.netlify.app/)
 
 ## Dependencies
 

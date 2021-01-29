@@ -1,17 +1,17 @@
 import React from "react";
 import CartItem from "../CartItem";
 
-import { Wrapper } from "./Cart.styles";
+import { Wrapper, Header } from "./Cart.styles";
 
 import { CartItemType } from "../../App";
 
-type CartItemsProps = {
+type CartItemProps = {
   cartItems: CartItemType[];
   addToCart: (selectedItem: CartItemType) => void;
   removeFromCart: (id: number) => void;
 };
 
-const Cart: React.FC<CartItemsProps> = ({
+const Cart: React.FC<CartItemProps> = ({
   cartItems,
   addToCart,
   removeFromCart,
@@ -19,9 +19,13 @@ const Cart: React.FC<CartItemsProps> = ({
   const calculateTotal = (items: CartItemType[]) =>
     items.reduce((acc: number, item) => acc + item.amount * item.price, 0);
 
+  const subTotal = calculateTotal(cartItems).toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+  });
+
   return (
     <Wrapper>
-      <h2>Your Shopping Cart</h2>
+      <Header>Your shopping cart:</Header>
       {cartItems.length === 0 && <p>Your cart is empty.</p>}
       {cartItems.map((item) => (
         <CartItem
@@ -31,7 +35,7 @@ const Cart: React.FC<CartItemsProps> = ({
           removeFromCart={removeFromCart}
         />
       ))}
-      <h3>Subtotal: $ {calculateTotal(cartItems).toFixed(2)}</h3>
+      <h3>Subtotal: $ {subTotal}</h3>
     </Wrapper>
   );
 };

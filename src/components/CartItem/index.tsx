@@ -1,9 +1,18 @@
 import React from "react";
-import { Button } from "@material-ui/core";
-
 import { CartItemType } from "../../App";
 
-import { Wrapper } from "./CartItem.styles";
+import {
+  Container,
+  Wrapper,
+  InfoBox,
+  InfoContentWrapper,
+  QuantityButton,
+  Image,
+  Quantity,
+  Title,
+  PriceTag,
+  Price,
+} from "./CartItem.styles";
 
 type CartItemProps = {
   item: CartItemType;
@@ -17,41 +26,34 @@ const CartItem: React.FC<CartItemProps> = ({
   removeFromCart,
 }) => {
   return (
-    <Wrapper>
-      <div className="container">
-        <h3> {item.title} </h3>
-        <div className="information">
-          <div>
-            <p>Price: </p>
-            <p> $ {item.price},- </p>
-          </div>
-          <div>
-            <p>Total:</p>
-            <p> $ {(item.amount * item.price).toFixed(2)},- </p>
-          </div>
-        </div>
-        <div className="buttons">
-          <Button
-            size="small"
+    <Container>
+      <Wrapper>
+        <Title> {item.title} </Title>
+        <InfoBox>
+          <InfoContentWrapper>
+            <PriceTag>Price: </PriceTag>
+            <Price> $ {item.price.toFixed(2)},- </Price>
+          </InfoContentWrapper>
+          <InfoContentWrapper>
+            <PriceTag>Total:</PriceTag>
+            <Price> $ {(item.amount * item.price).toFixed(2)},- </Price>
+          </InfoContentWrapper>
+        </InfoBox>
+        <InfoBox>
+          <QuantityButton
             disableElevation
-            variant="contained"
             onClick={() => removeFromCart(item.id)}
           >
             -
-          </Button>
-          <p className="amount"> {item.amount} </p>
-          <Button
-            size="small"
-            disableElevation
-            variant="contained"
-            onClick={() => addToCart(item)}
-          >
+          </QuantityButton>
+          <Quantity>x {item.amount} </Quantity>
+          <QuantityButton disableElevation onClick={() => addToCart(item)}>
             +
-          </Button>
-        </div>
-      </div>
-      <img src={item.image} alt={item.title} />
-    </Wrapper>
+          </QuantityButton>
+        </InfoBox>
+      </Wrapper>
+      <Image src={item.image} alt={item.title} />
+    </Container>
   );
 };
 

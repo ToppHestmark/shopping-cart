@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
+import { Button } from "@material-ui/core";
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -9,33 +10,46 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 10px;
+`;
 
-  button {
-    border-radius: 0 0 20px 20px;
+export const AddButton = styled(Button)`
+  border-radius: 0 0 20px 20px;
+`;
+
+export const Image = styled.img`
+  max-width: 200px;
+  display: flex;
+  align-self: center;
+  border-radius: 20px 20px 0 0;
+  aspect-ratio: 9 / 12;
+  object-fit: contain;
+
+  &::before {
+    background: red;
+    opacity: 0.5;
   }
+`;
 
-  img {
-    max-width: 200px;
-    display: flex;
-    align-self: center;
-    border-radius: 20px 20px 0 0;
-    aspect-ratio: 9 / 12;
-    object-fit: contain;
+export const TextWrapper = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
-    &::before {
-      background: red;
-      opacity: 0.5;
-    }
-  }
+export const Title = styled.h3`
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: -10px;
+`;
 
-  div {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 1rem;
-    height: 100%;
-  }
-
-  h3,
-  p {
-    color: rgba(0, 0, 0, 0.75);
-  }
+export const Description = styled.p`
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.75);
+`;
+export const PriceTag = styled.p`
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.75);
+  text-align: right;
 `;
