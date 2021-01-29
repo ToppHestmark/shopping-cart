@@ -1,6 +1,5 @@
 import styled from "styled-components/macro";
 import { Button } from "@material-ui/core";
-import { inherits } from "util";
 
 export const Container = styled.div`
   display: flex;
