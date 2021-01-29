@@ -17,12 +17,13 @@ export const AddButton = styled(Button)`
 `;
 
 export const Image = styled.img`
-  max-width: 200px;
+  max-width: 170px;
   display: flex;
   align-self: center;
   border-radius: 20px 20px 0 0;
   aspect-ratio: 9 / 12;
   object-fit: contain;
+  transform: scale(0.8);
 
   &::before {
     background: red;

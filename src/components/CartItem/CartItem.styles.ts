@@ -35,6 +35,7 @@ export const Image = styled.img`
   max-width: 90px;
   object-fit: contain;
   margin: 40px 0 0 40px;
+  transform: scale(0.8);
 `;
 
 export const Quantity = styled.p`

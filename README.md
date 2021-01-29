@@ -9,4 +9,4 @@
 - [Styled-components](https://styled-components.com/)
 - [@types/styled-components](https://styled-components.com/docs/api#typescript)
 
-## [API from Fake Store API](https://fakestoreapi.com/)
+- [API from Fake Store API](https://fakestoreapi.com/)
