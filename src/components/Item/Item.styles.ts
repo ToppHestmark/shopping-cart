@@ -32,7 +32,6 @@ export const Image = styled.img`
 `;
 
 export const TextWrapper = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
   padding: 1rem;
   height: 100%;
   display: flex;

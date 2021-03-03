@@ -69,6 +69,7 @@ const App = () => {
 
   return (
     <Wrapper>
+      <h1>FAKE STORE SHOP</h1>
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart
           cartItems={cartItems}
